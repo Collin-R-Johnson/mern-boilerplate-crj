@@ -2,23 +2,17 @@ const mongoose = require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-const Data = require("./data");
+const Data = require("./model/data.js");
 
 const API_PORT = 3001;
 const app = express();
 const router = express.Router();
 
 // this is our MongoDB database
-const dbRoute = "mongodb://jelo:a9bc839993@ds151382.mlab.com:51382/jelotest";
+//const dbRoute = "mongodb://jelo:a9bc839993@ds151382.mlab.com:51382/jelotest";
 
-// const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://dbAdmin:Camcol01001011@cluster-1-ef9py.mongodb.net/test?retryWrites=true";
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
+
+const uri = "mongodb://mongo:27017/docker-node-mongo";
 
 // connects our back end code with the database
 mongoose.connect(
@@ -32,6 +26,7 @@ db.once("open", () => console.log("connected to the database"));
 
 // checks if connection with the database is successful
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
+
 
 // (optional) only made for logging and
 // bodyParser, parses the request body to be a readable json format

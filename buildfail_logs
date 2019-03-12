@@ -1,0 +1,213 @@
+compose error
+sudo docker-compose build
+mongo uses an image, skipping
+Building backendStep 1/9 : FROM node:10
+ ---> 8c10e6cc3f51
+Step 2/9 : RUN mkdir -p /usr/src/app
+ ---> Using cache
+ ---> bd6581f54540
+Step 3/9 : WORKDIR /usr/src/app
+ ---> Using cache
+ ---> 30e9cc572e9b
+Step 4/9 : COPY . /usr/src/app
+ ---> Using cache
+ ---> 418a0205946a
+Step 5/9 : RUN npm cache verify
+ ---> Using cache
+ ---> 05ed040e78f4
+Step 6/9 : RUN npm install
+ ---> Using cache
+ ---> 2709f48e2db4
+Step 7/9 : COPY . /usr/src/app
+ ---> Using cache
+ ---> a51e89b8cfd1
+Step 8/9 : EXPOSE 3001
+ ---> Using cache
+ ---> c6dc2150a0dc
+Step 9/9 : CMD ["node", "server.js"]
+ ---> Using cache
+ ---> d05d3eeea3d9
+Successfully built d05d3eeea3d9
+Successfully tagged mernboilerplatecrj_backend:latest
+Building frontend
+Step 1/9 : FROM node:10
+ ---> 8c10e6cc3f51
+Step 2/9 : RUN mkdir -p /usr/src/app
+ ---> Using cache
+ ---> bd6581f54540
+Step 3/9 : WORKDIR /usr/src/app
+ ---> Using cache
+ ---> 30e9cc572e9b
+Step 4/9 : COPY . /usr/src/app
+ ---> Using cache
+ ---> 1dbce334cc21
+Step 5/9 : RUN npm cache verify
+ ---> Using cache
+ ---> 6cda441b2c7e
+Step 6/9 : RUN npm install
+ ---> Using cache
+ ---> f07f5e0a108c
+Step 7/9 : COPY . /usr/src/app
+ ---> Using cache
+ ---> e945c5dfe83d
+Step 8/9 : EXPOSE 3001
+ ---> Using cache
+ ---> f45d6f440720
+Step 9/9 : CMD ["npm", "start"]
+ ---> Using cache
+ ---> 7c5b3a401c02
+Successfully built 7c5b3a401c02
+Successfully tagged mernboilerplatecrj_frontend:latest
+collin@collin-GL702VSK:~/projects/mern-boilerplate-crj(dockerize)$ sudo docker-compose up
+Creating network "mernboilerplatecrj_default" with the default driver
+Creating mongo ... 
+Creating mongo ... done
+Creating express-backend ... 
+Creating express-backend ... done
+Creating react-frontend ... 
+Creating react-frontend ... done
+Attaching to mongo, express-backend, react-frontend
+mongo       | chown: cannot dereference '/proc/1/fd/1': Permission denied
+mongo       | chown: cannot dereference '/proc/1/fd/2': Permission denied
+mongo       | 2019-03-12T06:48:38.515+0000 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+mongo       | 2019-03-12T06:48:38.524+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=e7feb9b483bd
+express-backend | internal/modules/cjs/loader.js:584
+express-backend |     throw err;
+mongo       | 2019-03-12T06:48:38.524+0000 I CONTROL  [initandlisten] db version v4.0.6
+express-backend |     ^
+mongo       | 2019-03-12T06:48:38.524+0000 I CONTROL  [initandlisten] git version: caa42a1f75a56c7643d0b68d3880444375ec42e3
+express-backend | 
+mongo       | 2019-03-12T06:48:38.524+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+express-backend | Error: Cannot find module '../model/data'
+mongo       | 2019-03-12T06:48:38.524+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+express-backend |     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:582:15)
+mongo       | 2019-03-12T06:48:38.524+0000 I CONTROL  [initandlisten] modules: none
+express-backend |     at Function.Module._load (internal/modules/cjs/loader.js:508:25)
+mongo       | 2019-03-12T06:48:38.524+0000 I CONTROL  [initandlisten] build environment:
+express-backend |     at Module.require (internal/modules/cjs/loader.js:637:17)
+mongo       | 2019-03-12T06:48:38.524+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+express-backend |     at require (internal/modules/cjs/helpers.js:22:18)
+mongo       | 2019-03-12T06:48:38.524+0000 I CONTROL  [initandlisten]     distarch: x86_64
+express-backend |     at Object.<anonymous> (/usr/src/app/server.js:5:14)
+mongo       | 2019-03-12T06:48:38.524+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+express-backend |     at Module._compile (internal/modules/cjs/loader.js:701:30)
+mongo       | 2019-03-12T06:48:38.524+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true } }
+express-backend |     at Object.Module._extensions..js (internal/modules/cjs/loader.js:712:10)
+express-backend |     at Module.load (internal/modules/cjs/loader.js:600:32)
+express-backend |     at tryModuleLoad (internal/modules/cjs/loader.js:539:12)
+express-backend |     at Function.Module._load (internal/modules/cjs/loader.js:531:3)
+express-backend |     at Function.Module.runMain (internal/modules/cjs/loader.js:754:12)
+express-backend |     at startup (internal/bootstrap/node.js:283:19)
+express-backend |     at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+mongo       | 2019-03-12T06:48:38.525+0000 I STORAGE  [initandlisten] 
+mongo       | 2019-03-12T06:48:38.525+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+mongo       | 2019-03-12T06:48:38.525+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+mongo       | 2019-03-12T06:48:38.525+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=5468M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+mongo       | 2019-03-12T06:48:39.000+0000 I STORAGE  [initandlisten] WiredTiger message [1552373319:622][1:0x7fd1bc306a40], txn-recover: Set global recovery timestamp: 0
+mongo       | 2019-03-12T06:48:39.019+0000 I RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+mongo       | 2019-03-12T06:48:39.044+0000 I CONTROL  [initandlisten] 
+mongo       | 2019-03-12T06:48:39.045+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+mongo       | 2019-03-12T06:48:39.045+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+mongo       | 2019-03-12T06:48:39.045+0000 I CONTROL  [initandlisten] 
+mongo       | 2019-03-12T06:48:39.049+0000 I STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: 622cfb7e-16de-4e4b-b84b-4e2cb40012fa
+mongo       | 2019-03-12T06:48:39.070+0000 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 4.0
+mongo       | 2019-03-12T06:48:39.079+0000 I STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: 8fdda6d7-f527-43e0-bc1f-10422fb8db71
+mongo       | 2019-03-12T06:48:39.101+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+mongo       | 2019-03-12T06:48:39.105+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+mongo       | 2019-03-12T06:48:39.111+0000 I STORAGE  [LogicalSessionCacheRefresh] createCollection: config.system.sessions with generated UUID: 9580d120-d7ef-437c-87b5-a7b2927eb75f
+mongo       | 2019-03-12T06:48:39.142+0000 I INDEX    [LogicalSessionCacheRefresh] build index on: config.system.sessions properties: { v: 2, key: { lastUse: 1 }, name: "lsidTTLIndex", ns: "config.system.sessions", expireAfterSeconds: 1800 }
+mongo       | 2019-03-12T06:48:39.143+0000 I INDEX    [LogicalSessionCacheRefresh]       building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+mongo       | 2019-03-12T06:48:39.144+0000 I INDEX    [LogicalSessionCacheRefresh] build index done.  scanned 0 total records. 0 secs
+react-frontend | 
+react-frontend | > client@0.1.0 start /usr/src/app
+react-frontend | > react-scripts start
+react-frontend | 
+express-backend exited with code 1
+react-frontend | Starting the development server...
+react-frontend | 
+react-frontend | Compiled successfully!
+react-frontend | 
+react-frontend | You can now view client in the browser.
+react-frontend | 
+react-frontend |   Local:            http://localhost:3000/
+react-frontend |   On Your Network:  http://172.18.0.4:3000/
+react-frontend | 
+react-frontend | Note that the development build is not optimized.
+react-frontend | To create a production build, use npm run build.
+react-frontend | 
+^CGracefully stopping... (press Ctrl+C again to force)
+Stopping react-frontend ... done
+Stopping mongo          ... done
+collin@collin-GL702VSK:~/projects/mern-boilerplate-crj(dockerize)$ sudo docker-compose up
+Starting mongo ... 
+Starting mongo ... done
+Starting express-backend ... 
+Starting express-backend ... done
+Recreating react-frontend ... 
+Recreating react-frontend ... done
+Attaching to mongo, express-backend, react-frontend
+mongo       | chown: cannot dereference '/proc/1/fd/1': Permission denied
+mongo       | chown: cannot dereference '/proc/1/fd/2': Permission denied
+mongo       | 2019-03-12T06:55:38.774+0000 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+express-backend | internal/modules/cjs/loader.js:584
+express-backend |     throw err;
+express-backend |     ^
+express-backend | 
+mongo       | 2019-03-12T06:55:38.776+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=e7feb9b483bd
+express-backend | Error: Cannot find module 'backend/model/data.js'
+mongo       | 2019-03-12T06:55:38.776+0000 I CONTROL  [initandlisten] db version v4.0.6
+express-backend |     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:582:15)
+mongo       | 2019-03-12T06:55:38.776+0000 I CONTROL  [initandlisten] git version: caa42a1f75a56c7643d0b68d3880444375ec42e3
+express-backend |     at Function.Module._load (internal/modules/cjs/loader.js:508:25)
+mongo       | 2019-03-12T06:55:38.776+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+express-backend |     at Module.require (internal/modules/cjs/loader.js:637:17)
+mongo       | 2019-03-12T06:55:38.776+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+express-backend |     at require (internal/modules/cjs/helpers.js:22:18)
+mongo       | 2019-03-12T06:55:38.776+0000 I CONTROL  [initandlisten] modules: none
+express-backend |     at Object.<anonymous> (/usr/src/app/server.js:5:14)
+mongo       | 2019-03-12T06:55:38.776+0000 I CONTROL  [initandlisten] build environment:
+express-backend |     at Module._compile (internal/modules/cjs/loader.js:701:30)
+express-backend |     at Object.Module._extensions..js (internal/modules/cjs/loader.js:712:10)
+express-backend |     at Module.load (internal/modules/cjs/loader.js:600:32)
+express-backend |     at tryModuleLoad (internal/modules/cjs/loader.js:539:12)
+mongo       | 2019-03-12T06:55:38.776+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+express-backend |     at Function.Module._load (internal/modules/cjs/loader.js:531:3)
+mongo       | 2019-03-12T06:55:38.776+0000 I CONTROL  [initandlisten]     distarch: x86_64
+express-backend |     at Function.Module.runMain (internal/modules/cjs/loader.js:754:12)
+express-backend |     at startup (internal/bootstrap/node.js:283:19)
+express-backend |     at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+mongo       | 2019-03-12T06:55:38.776+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+mongo       | 2019-03-12T06:55:38.776+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true } }
+mongo       | 2019-03-12T06:55:38.777+0000 I STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+mongo       | 2019-03-12T06:55:38.777+0000 I STORAGE  [initandlisten] 
+mongo       | 2019-03-12T06:55:38.777+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+mongo       | 2019-03-12T06:55:38.777+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+mongo       | 2019-03-12T06:55:38.777+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=5468M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+mongo       | 2019-03-12T06:55:39.332+0000 I STORAGE  [initandlisten] WiredTiger message [1552373739:332038][1:0x7fc2b1e41a40], txn-recover: Main recovery loop: starting at 1/22528 to 2/256
+mongo       | 2019-03-12T06:55:39.397+0000 I STORAGE  [initandlisten] WiredTiger message [1552373739:397924][1:0x7fc2b1e41a40], txn-recover: Recovering log 1 through 2
+mongo       | 2019-03-12T06:55:39.440+0000 I STORAGE  [initandlisten] WiredTiger message [1552373739:440919][1:0x7fc2b1e41a40], txn-recover: Recovering log 2 through 2
+mongo       | 2019-03-12T06:55:39.488+0000 I STORAGE  [initandlisten] WiredTiger message [1552373739:488193][1:0x7fc2b1e41a40], txn-recover: Set global recovery timestamp: 0
+mongo       | 2019-03-12T06:55:39.520+0000 I RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+mongo       | 2019-03-12T06:55:39.530+0000 I CONTROL  [initandlisten] 
+mongo       | 2019-03-12T06:55:39.530+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+mongo       | 2019-03-12T06:55:39.530+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+mongo       | 2019-03-12T06:55:39.530+0000 I CONTROL  [initandlisten] 
+mongo       | 2019-03-12T06:55:39.537+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+mongo       | 2019-03-12T06:55:39.538+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+react-frontend | 
+react-frontend | > client@0.1.0 start /usr/src/app
+react-frontend | > react-scripts start
+react-frontend | 
+express-backend exited with code 1
+react-frontend | Starting the development server...
+react-frontend | 
+react-frontend | Compiled successfully!
+react-frontend | 
+react-frontend | You can now view client in the browser.
+react-frontend | 
+react-frontend |   Local:            http://localhost:3000/
+react-frontend |   On Your Network:  http://172.18.0.4:3000/
+react-frontend | 
+react-frontend | Note that the development build is not optimized.
+react-frontend | To create a production build, use npm run build.
+react-frontend | 
