@@ -12,5 +12,14 @@
   "description": "root package.json builds front and back concurrently",
   "dependencies": {
     "concurrently": "^4.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Collin-R-Johnson/mern-boilerplate-crj.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Collin-R-Johnson/mern-boilerplate-crj/issues"
+  },
+  "homepage": "https://github.com/Collin-R-Johnson/mern-boilerplate-crj#readme"
 }
