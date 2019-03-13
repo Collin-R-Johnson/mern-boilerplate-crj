@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "mern-boilerplate-crj",
   "version": "1.0.0",
-  "description": "minimal backend",
+  "description": "a base template for running a MERN stack with docker compose",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
