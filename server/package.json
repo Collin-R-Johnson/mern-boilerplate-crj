@@ -4,6 +4,7 @@
   "description": "a base template for running a MERN stack with docker compose",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Collin Johnson",
