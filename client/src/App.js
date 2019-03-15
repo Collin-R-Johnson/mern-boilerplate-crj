@@ -42,7 +42,7 @@ class App extends Component {
   // our first get method that uses our backend api to 
   // fetch data from our data base
   getDataFromDb = () => {
-    fetch("http://localhost:3001/api/getData")
+    fetch("api/getData")
       .then(data => data.json())
       .then(res => this.setState({ data: res.data }));
   };
@@ -56,7 +56,7 @@ class App extends Component {
       ++idToBeAdded;
     }
 
-    axios.post("http://localhost:3001/api/putData", {
+    axios.post("/api/putData", {
       id: idToBeAdded,
       message: message
     });
@@ -73,7 +73,7 @@ class App extends Component {
       }
     });
 
-    axios.delete("http://localhost:3001/api/deleteData", {
+    axios.delete("/api/deleteData", {
       data: {
         id: objIdToDelete
       }

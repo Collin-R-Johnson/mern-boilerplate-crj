@@ -1,24 +1,50 @@
 version: '3'
 services:
-
+#######################################
+#   build client container for
+#   express framework server
+#######################################
   server:
     container_name: express-server
-    build: ./server/
+    #builds dockerfile in server directory
+    build: ./server
+    #expose in compose file rather than dockerfile for readability
+    expose:
+      - ${SERVER_PORT}
+    environment:
+      API_HOST: ${API_HOST}
+      SERVER_PORT: ${SERVER_PORT}
     ports:
-      - "8080:8080"
+      - ${SERVER_PORT}:${SERVER_PORT}
+    #map the local source to the container source for dev env
     volumes:
-      - ./server:/usr/src/app
+      - ./server/src:/usr/src/server-app
     links:
       - mongo
+#######################################
+#   build client container for
+#   react frontend
+#######################################
   client:
-    container_name: react-frontend
-    build: ./client/
+    container_name: react-client
+    #builds dockerfile in client directory
+    build: ./client
+    expose:
+      - ${CLIENT_PORT}
+    #maps port in the docker container to the host machine
     ports:
-      - "3000:3000"
+      - ${CLIENT_PORT}:${CLIENT_PORT}
+    #map the local source to the container source for dev env
     volumes:
-      - ./client:/usr/src/app
+      - ./client/src:/usr/src/react-client/src
+      - ./client/public:/usr/src/react-client/public
+    #makes sure server is there first before building
     depends_on:
       - server
+#######################################
+#   pull docker image from repo for
+#   persistent storage
+#######################################
   mongo:
     container_name: mongo
     image: mongo

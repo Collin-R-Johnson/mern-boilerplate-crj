@@ -2,14 +2,13 @@ const mongoose = require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-const Data = require("./model/data.js");
+const Data = require("../../models/");
 
 const API_PORT = 3001;
 const app = express();
 const router = express.Router();
 
 // this is our MongoDB database
-//const dbRoute = "mongodb://jelo:a9bc839993@ds151382.mlab.com:51382/jelotest";
 
 
 const uri = "mongodb://mongo:27017/docker-node-mongo";
@@ -28,7 +27,7 @@ db.once("open", () => console.log("connected to the database"));
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 
-// (optional) only made for logging and
+// set the app to log with bodyparser
 // bodyParser, parses the request body to be a readable json format
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -63,7 +62,7 @@ router.delete("/deleteData", (req, res) => {
   });
 });
 
-// this is our create methid
+// this is our create method
 // this method adds new data in our database
 router.post("/putData", (req, res) => {
   let data = new Data();
@@ -87,5 +86,5 @@ router.post("/putData", (req, res) => {
 // append /api for our http requests
 app.use("/api", router);
 
-// launch our backend into a port
+// launch our backend into a port, listens on port react is set to
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
